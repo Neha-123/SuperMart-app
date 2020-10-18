@@ -1,0 +1,13 @@
+const express = require('express');
+require('./db/mongoose');
+const ProductRouter = require('./Router/ProductRouter');
+const BasketRouter = require('./Router/BasketRouter');
+const CustomerRouter = require('./Router/CustomerRouter');
+const cors = require('cors');
+const app = express();
+app.use(express.json());
+app.use(cors());
+app.use(ProductRouter);
+app.use(BasketRouter);
+app.use(CustomerRouter);
+module.exports = app;
