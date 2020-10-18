@@ -5,7 +5,7 @@ const Authentication = async (req, res, next ) => {
     try {
         const token = req.header('Authorization');
         console.log('token', token);
-        const decoded = jwt.verify(token, 'AuthenticationString');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const customer = await Customer.findOne({_id: decoded._id, token: decoded.token});
         if(!customer) {
             throw new Error()

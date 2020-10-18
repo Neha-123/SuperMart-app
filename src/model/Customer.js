@@ -46,7 +46,7 @@ customerSchema.virtual('basket', {
 
 customerSchema.methods.generateAuthTokens = async function () {
     const customer = this;
-    const token = jwt.sign({_id: customer._id.toString()}, 'AuthenticationString');
+    const token = jwt.sign({_id: customer._id.toString()}, process.env.JWT_SECRET);
     customer.tokens = customer.tokens.concat({token});
     await customer.save();
     return token
