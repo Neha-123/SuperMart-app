@@ -79,7 +79,7 @@ router.get('/ordersdetails/:id', Authentication, async (req, res) => {
        // const convertedDate = new Date(decodeURIComponent(req.params.id))
        // console.log('convertedDate >>>>', convertedDate)
         const orderDb = await Order.find({customer_id: req.customer._id, orderId: req.params.id});
-        res.status(201).send(orderDb)
+        res.status(201).send(orderDb);
         console.log('orderDb >>>>', orderDb)
     } catch (error) {
         res.status(400).send(error.message)
