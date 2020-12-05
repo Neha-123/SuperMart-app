@@ -24,6 +24,7 @@ router.post('/cart', Authentication, async (req, res) => {
 
         await basket.save();
         const modifiedBasket = await Basket.find({customer_id: req.customer._id});
+        //console.log('modifiedBasket', modifiedBasket)
         res.status(201).send(modifiedBasket)
     } catch (error) {
         res.status(500).send(error.message)
@@ -81,6 +82,9 @@ router.delete('/cart/:id', Authentication,  (req, res) => {
 
 
 })
+
+
+
 
 
 module.exports = router;

@@ -15,7 +15,7 @@ router.post('/customer', async (req, res) => {
         await customer.save();
         await customer.generateAuthTokens()
         const token = customer.tokens[0]
-        console.log(customer);
+        //console.log(customer);
         res.status(200).send(token)
     } catch (error) {
             console.log('error', error);

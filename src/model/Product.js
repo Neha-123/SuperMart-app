@@ -2,6 +2,15 @@ const { ObjectID } = require('mongodb');
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
+    category: {
+        type: String,
+        required: [true, 'Enter Category'],
+        trim: true
+    },
+    subCategory: {
+        type: String,
+        trim: true
+    },
     productName : {
         type: String,
         required: [true, 'Enter Product name'],

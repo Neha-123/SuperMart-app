@@ -4,6 +4,8 @@ require('./db/mongoose');
 const ProductRouter = require('./Router/ProductRouter');
 const BasketRouter = require('./Router/BasketRouter');
 const CustomerRouter = require('./Router/CustomerRouter');
+const PaymentRouter = require('./Router/PaymentRouter');
+const AddressRouter = require('./Router/AddressRouter');
 const cors = require('cors');
 const app = express();
 app.use(express.json());
@@ -18,4 +20,6 @@ app.get('/checkout', function(req, res) {
 app.use(ProductRouter);
 app.use(BasketRouter);
 app.use(CustomerRouter);
+app.use(PaymentRouter);
+app.use(AddressRouter);
 module.exports = app;
